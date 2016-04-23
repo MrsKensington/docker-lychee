@@ -9,6 +9,7 @@ RUN pecl install imagick && \
     docker-php-ext-enable imagick
 
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install gd
 
 RUN mkdir -p /code/lychee
 
