@@ -4,7 +4,7 @@ MAINTAINER docker@mikeditum.co.uk
 COPY php_lychee.ini /usr/local/etc/php/conf.d/lychee.ini
 
 RUN mkdir -p /code && \
-    cd /code/lychee && \
+    cd /code && \
     wget -O Lychee-master.tar.gz https://github.com/electerious/Lychee/archive/master.tar.gz && \
     tar xvf Lychee-master.tar.gz && \
     rm -f Lychee-master.tar.gz && \
