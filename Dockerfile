@@ -1,7 +1,9 @@
 FROM mrskensington/docker-php-with-ext
 MAINTAINER docker@mikeditum.co.uk
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean
 
 RUN mkdir -p /code/lychee
 
