@@ -1,17 +1,15 @@
 FROM mrskensington/docker-php-with-ext
 MAINTAINER docker@mikeditum.co.uk
 
-RUN apt-get update && \
-    apt-get install -y git && \
-    apt-get clean
-
-RUN mkdir -p /code/lychee
-
 COPY php_lychee.ini /usr/local/etc/php/conf.d/lychee.ini
 
-RUN git clone https://github.com/electerious/Lychee.git /code/lychee
-
-RUN mv /code/lychee/uploads /uploads && \
+RUN mkdir -p /code && \
+    cd /code/lychee && \
+    wget -O Lychee-master.tar.gz https://github.com/electerious/Lychee/archive/master.tar.gz && \
+    tar xvf Lychee-master.tar.gz && \
+    rm -f Lychee-master.tar.gz && \
+    mv Lychee-master lychee && \
+    mv /code/lychee/uploads /uploads && \
     mv /code/lychee/data /data && \
     ln -s /uploads /code/lychee/uploads && \
     ln -s /data /code/lychee/data && \
