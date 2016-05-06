@@ -1,6 +1,11 @@
 FROM mrskensington/docker-php-with-ext
 MAINTAINER docker@mikeditum.co.uk
 
+RUN apt-get update && \
+    apt-get install -y wget && \
+    apt-get clean
+
+
 COPY php_lychee.ini /usr/local/etc/php/conf.d/lychee.ini
 
 RUN mkdir -p /code && \
